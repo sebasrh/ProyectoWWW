@@ -14,7 +14,8 @@ class Equipo(models.Model):
 
 class Partido(models.Model):
     codigo = models.CharField(primary_key=True,max_length=6)
-    equipos = models.ForeignKey(Equipo,blank=True,null=True,on_delete=models.CASCADE)
+    equipos1 = models.ForeignKey(Equipo,blank=True,null=True,on_delete=models.CASCADE)
+    equipos2 = models.ForeignKey(Equipo,blank=True,null=True,on_delete=models.CASCADE)
     marcador1 = models.CharField(max_length=2)
     marcador2 = models.CharField(max_length=2)
     fecha = models.DateField()

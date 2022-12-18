@@ -7,8 +7,12 @@ from .serializers import EquipoSerializer, PartidoSerializer, ApuestaSerializer
 
 # Create your views here.
 
-@csrf_exempt
-def equipoApi(request,id=0):
+def equipoApi(request):
+
+    context={'equipo': Equipo.objects.all()}
+    return render(request, "gestionApuestas.html",context)
+
+"""def equipoApi(request,id=0):
     if request.method == 'GET':
         equipos = Equipo.objects.all()
         equipos_serializer = EquipoSerializer(equipos,many=True)
@@ -31,4 +35,4 @@ def equipoApi(request,id=0):
     elif request.method == 'DELETE':
         equipos=Equipo.objects.get(pais=id)
         equipos.delete()
-        return JsonResponse("Eliminado con exito",safe=False)
+        return JsonResponse("Eliminado con exito",safe=False)"""

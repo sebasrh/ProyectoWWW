@@ -2,12 +2,12 @@
 {% block title %} Gestión de Apuestas {% endblock %}
 {% block body %}
 
-<h2>Eventos principales</h2>
-<h4>Partidos</h4>
+<h2>Partidos</h2>
     <div class="table-responsive py-2">
         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
+                    <th>Grupo</th>
                     <th>Equipo</th>
                     <th>Equipo</th>
                     <th>Fecha</th>
@@ -16,11 +16,19 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>A</td>
                     <td>Argentina</td>
                     <td>Croacia</td>
                     <td>18/12/2022</td>
                     <td><a class="btn btn-info text-white">Apostar</a></td>
                 </tr>
+                {% for e in equipo %}
+                    <tr>
+                        <td>{{e.pais}}</td>
+                        <td>{{e.grupo}}</td>
+                        <td><a class="btn btn-info text-white">Apostar</a></td>
+                    </tr>
+                {% endfor %}
                 
             </tbody>
         </table>
