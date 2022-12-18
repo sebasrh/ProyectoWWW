@@ -6,6 +6,9 @@ from django.db import models
 class Equipo(models.Model):
     pais = models.CharField(max_length=50)
     grupo = models.CharField(max_length=50)
+    
+    class Meta:
+        ordering = ['grupo']
 
     def __str__(self):
         texto = "{0} ({1})"

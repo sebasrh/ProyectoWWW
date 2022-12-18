@@ -1,8 +1,12 @@
-from django.urls import re_path
+from django.urls import path
 from . import views
 
 urlpatterns = [
-    re_path('',views.partido),
+    path('',views.grupos),
+    path('octavos/',views.octavos),
+    path('cuartos/',views.cuartos),
+    path('semis/',views.semis),
+    path('finales/',views.finales),
     #path('registrarApuesta/',views.registrarApuesta),
-    #path('registrandoApuesta/<codigo>',views.registrandoApuesta),
+    path('registrarApuesta/<id>',views.registrarApuesta),
 ]

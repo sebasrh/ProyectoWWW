@@ -1,0 +1,41 @@
+{% extends './base.html' %}
+{% block title %} Resgistrar Apuesta {% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Resgistrar Apuesta</h2>
+        <div class="card">
+            <div class="card-body ">
+                <form action="" method="POST"> {% csrf_token %}
+                    <h3>{{partido.equipos1.pais}} vs {{partido.equipos2.pais}}</h3>
+                    <div class="form-group">
+                        <p>Escribe tu nombre</p>
+                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" 
+                        maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <p>{{partido.equipos1.pais}}</p>
+                        <input type="text" id="txtMarcador1" name="txtMarcador1" class="form-control" placeholder="Goles" 
+                        maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <p>{{partido.equipos2.pais}}</p>
+                        <input type="text" id="txtMarcador2" name="txtMarcador2" class="form-control" placeholder="Goles" 
+                        maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <p>Cuanto vas a apostar</p>
+                        <input type="text" id="txtMonto" name="txtMonto" class="form-control" placeholder="Monto" 
+                        maxlength="50" required>
+                    </div>
+                    
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-block btn-success text-white">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

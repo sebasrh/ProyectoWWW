@@ -1,0 +1,33 @@
+{% extends './base.html' %}
+{% block title %} Gestión de Apuestas {% endblock %}
+{% block body %}
+
+<div class="row">
+    <h2>Partidos</h2>
+    <div class="table-responsive py-2">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Fase</th>
+                    <th>Equipo</th>
+                    <th>Equipo</th>
+                    <th>Fecha</th>
+                    <th>Opcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for p in partido %}
+                        <tr>
+                            <td>{{p.clasificacion}} {{p.equipos1.cla}}</td>
+                            <td>{{p.equipos1.pais}}</td>
+                            <td>{{p.equipos2.pais}}</td>
+                            <td>{{p.fecha}}</td>
+                            <td><a href="registrarApuesta/{{p.id}}" class="btn btn-info text-white">Apostar</a></td>
+                        </tr>
+                    {% endfor %}
+                
+            </tbody>
+        </table>
+    </div> 
+</div>        
+{% endblock %}

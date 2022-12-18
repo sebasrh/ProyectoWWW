@@ -1,12 +1,28 @@
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
-from django.http.response import JsonResponse
+from django.shortcuts import render, redirect
 from .models import Equipo, Partido, Apuesta
 
 # Create your views here.
 
-def partido(request):
+def grupos(request):
+    context={'partido': Partido.objects.filter(clasificacion='grupos')}
+    return render(request, "gestionApuestasGrupos.html",context)
 
-    context={'partido': Partido.objects.all()}
-    return render(request, "gestionApuestas.html",context)
+def octavos(request):
+    context={'partido': Partido.objects.filter(clasificacion='octavos')}
+    return render(request, "gestionApuestasOctavos.html",context)
+
+def cuartos(request):
+    context={'partido': Partido.objects.filter(clasificacion='cuartos')}
+    return render(request, "gestionApuestasCuartos.html",context)
+
+def semis(request):
+    context={'partido': Partido.objects.filter(clasificacion='semifinales')}
+    return render(request, "gestionApuestasSemis.html",context)
+
+def finales(request):
+    context={'partido': Partido.objects.filter(clasificacion='final')}
+    return render(request, "gestionApuestasFinales.html",context)
+
+def registrarApuesta(request,id):
+    context={'partido':Partido.objects.get(id=id)}
+    return render(request,"registrarApuesta.html",context)
