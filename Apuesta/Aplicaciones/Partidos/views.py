@@ -26,3 +26,15 @@ def finales(request):
 def registrarApuesta(request,id):
     context={'partido':Partido.objects.get(id=id)}
     return render(request,"registrarApuesta.html",context)
+
+def hacerApuesta(request,id):
+    nombre = request.POST['txtNombre']
+    marcador1 = request.POST['txtMarcador1']
+    marcador2 = request.POST['txtMarcador2']
+    monto = request.POST['txtMonto']
+
+    codigo_partido=Partido.objects.get(id=id)
+
+    apuesta=Apuesta.objects.create(codigo_partido=codigo_partido,nombre=nombre, marcador1=marcador1, marcador2=marcador2, monto=monto)
+    
+    return redirect('/')
