@@ -3,6 +3,9 @@ from .models import Equipo, Partido, Apuesta
 
 # Create your views here.
 
+def home(request):
+    return render(request, "home.html")
+
 def grupos(request):
     context={'partido': Partido.objects.filter(clasificacion='grupos')}
     return render(request, "gestionApuestasGrupos.html",context)

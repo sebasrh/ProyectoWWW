@@ -17,6 +17,7 @@
             <tbody>
                     {% for p in partido %}
                         <tr>
+                            <td>{{forloop.counter}}</td>
                             <td>{{p.clasificacion}} - {{p.equipos1.grupo}}</td>
                             <td>{{p.equipos1.pais}} - {{p.equipos2.pais}}</td>
                             <td>{{p.fecha}}</td>
