@@ -11,8 +11,8 @@ class Equipo(models.Model):
         ordering = ['grupo']
 
     def __str__(self):
-        texto = "{0} ({1})"
-        return texto.format(self.pais, self.grupo)
+        texto = "{0}"
+        return texto.format(self.pais)
 
 class Partido(models.Model):
     clasificacion = models.CharField(max_length=50)

@@ -17,4 +17,5 @@ urlpatterns = [
     path('cuartos/hacerApuesta/<id>',views.hacerApuesta),
     path('semis/hacerApuesta/<id>',views.hacerApuesta),
     path('finales/hacerApuesta/<id>',views.hacerApuesta),
+    path('resultados/',views.resultados),
 ]

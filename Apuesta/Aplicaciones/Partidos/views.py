@@ -37,4 +37,8 @@ def hacerApuesta(request,id):
 
     apuesta=Apuesta.objects.create(codigo_partido=codigo_partido,nombre=nombre, marcador1=marcador1, marcador2=marcador2, monto=monto)
     
-    return redirect('/')
+    return redirect('/resultados/')
+
+def resultados(request):
+    context={'apuesta':Apuesta.objects.all()}
+    return render(request,"gestionApuestasResultados.html",context)

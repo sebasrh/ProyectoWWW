@@ -9,8 +9,7 @@
             <thead>
                 <tr>
                     <th>Fase</th>
-                    <th>Equipo</th>
-                    <th>Equipo</th>
+                    <th>Partido</th>
                     <th>Fecha</th>
                     <th>Opcion</th>
                 </tr>
@@ -18,9 +17,8 @@
             <tbody>
                     {% for p in partido %}
                         <tr>
-                            <td>{{p.clasificacion}} {{p.equipos1.grupo}}</td>
-                            <td>{{p.equipos1.pais}}</td>
-                            <td>{{p.equipos2.pais}}</td>
+                            <td>{{p.clasificacion}} - {{p.equipos1.grupo}}</td>
+                            <td>{{p.equipos1.pais}} - {{p.equipos2.pais}}</td>
                             <td>{{p.fecha}}</td>
                             <td><a href="registrarApuesta/{{p.id}}" class="btn btn-info text-white">Apostar</a></td>
                         </tr>
