@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Equipo, Partido, Apuesta
 
 # Create your views here.
-
+def home(request):
+    return render(request, "home.html")
 def grupos(request):
     context={'partido': Partido.objects.filter(clasificacion='grupos')}
     return render(request, "gestionApuestasGrupos.html",context)
@@ -24,10 +25,14 @@ def finales(request):
     return render(request, "gestionApuestasFinales.html",context)
 
 def registrarApuesta(request,id):
-    context={'partido':Partido.objects.get(id=id)}
+    context={
+        'partido':Partido.objects.get(id=id),
+        'nombre': Apuesta.objects.all()
+    }
     return render(request,"registrarApuesta.html",context)
 
 def hacerApuesta(request,id):
+    
     nombre = request.POST['txtNombre']
     marcador1 = request.POST['txtMarcador1']
     marcador2 = request.POST['txtMarcador2']
