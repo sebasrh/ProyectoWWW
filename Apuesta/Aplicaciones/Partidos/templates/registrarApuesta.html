@@ -3,35 +3,38 @@
 {% block body %}
 
 <div class="row">
-    <div class="col-md-4 offset-md-4">
-        <h2>Resgistrar Apuesta</h2>
-        <div class="card">
-            <div class="card-body ">
+    <div class="col-md-4 offset-md-4 text-center">
+        <h2 >Resgistrar Apuesta</h2>
+        <div class="card shadow-lg  mt-4  bg-white rounded">
+            <div class="card-body mb-4">
                 <form action="/hacerApuesta/{{partido.id}}" method="POST"> {% csrf_token %}
-                    <h3>{{partido.equipos1.pais}} vs {{partido.equipos2.pais}}</h3>
-                    <div class="form-group">
-                        <p>Escribe tu nombre</p>
+                    <div class="mb-3"> 
+                        <h3>{{partido.equipos1.pais}} vs {{partido.equipos2.pais}}</h3>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label class="form-label">Escribe tu nombre</label>
                         <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" 
                         maxlength="50" required>
                     </div>
-                    <div class="form-group">
-                        <p>{{partido.equipos1.pais}}</p>
+                    <div class="form-group mb-3">
+                        <label class="form-label">{{partido.equipos1.pais}}</label>
                         <input type="number" id="txtMarcador1" name="txtMarcador1" class="form-control" placeholder="Goles" 
                         maxlength="50" required>
                     </div>
-                    <div class="form-group">
-                        <p>{{partido.equipos2.pais}}</p>
+                    <div class="form-group mb-3">
+                        <label class="form-label">{{partido.equipos2.pais}}</label>
                         <input type="number" id="txtMarcador2" name="txtMarcador2" class="form-control" placeholder="Goles" 
                         maxlength="50" required>
                     </div>
-                    <div class="form-group">
-                        <p>Cuanto vas a apostar</p>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Monto de la apuesta</label>
                         <input type="number" id="txtMonto" name="txtMonto" class="form-control" placeholder="Monto" 
                         maxlength="50" required>
                     </div>
                     
-                    <div class="form-group py-2">
-                        <button type="submit" class="btn btn-block btn-success text-white btnApuesta">Guardar</button>
+                    <div class="form-group d-grid gap-2 ">
+                        <button type="submit" class="btn btn-info text-white btnApuesta">Guardar</button>
                     </div>
                 </form>
             </div>

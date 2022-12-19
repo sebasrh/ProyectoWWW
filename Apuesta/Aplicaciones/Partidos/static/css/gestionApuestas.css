@@ -5,6 +5,8 @@ thead,tbody{
 h2,h3{
     text-align: center;
 }
-p{
-    text-align: center;
+#imagen{
+    width: 75%;
+    display:block;
+    margin:auto;
 }
